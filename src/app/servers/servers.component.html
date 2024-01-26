@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      @for (server of servers; track $index) {
+      <a
+        href="#"
+        class="list-group-item"
+        [routerLink]="['/servers', server.id]"
+        [fragment]="'loading'"
+        [queryParams]="{ allowEdit: server.id === 3 ? '1' : '0' }"
+      >
+        {{ server.name }}
+      </a>
+      }
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <router-outlet />
+    <!-- <button class="btn btn-primary" (click)="onReload()">Reload page</button> -->
+    <!-- <app-edit-server></app-edit-server> -->
+    <!-- <hr /> -->
+    <!-- <app-server></app-server> -->
+  </div>
+</div>
